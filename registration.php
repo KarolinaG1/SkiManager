@@ -21,6 +21,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $surname_check = preg_match($surname_regexp, $surname);
     //TODO
     $email_regexp="/^[a-zA-Z0-9\_\-\+\.]+\@[a-zA-Z0-9\-\_\.]+\.[a-zA-Z]{2,6}$/";
+    $email_check=preg_match($email_regexp, $email);
     
     //TODO odpowiednio sprawdź czy hasła się zgadzają
     if($password1 == $password2){
@@ -38,11 +39,12 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
         } else {
             echo("Illegal expressions have been used");
-        } else{
+        }
+    } else{
         echo("Password mismatch!");
         }
     }else{
     echo("Error in request method");
-    }
 }
+
 ?>
